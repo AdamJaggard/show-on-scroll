@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Show On Scroll</title>
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		.box {
+			width: 300px;
+			height: 300px;
+			background: blue;
+			margin: 20px;
+		}
+
+		.wrap {
+			display: flex;
+			flex-wrap: wrap;
+			min-height: 100vh;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>Show On Scroll</h1>
+	<div class="wrap">
+		<div class="box one"></div>
+	</div>
+	<div class="wrap">
+		<div class="box two"></div>
+		<div class="box two"></div>
+	</div>
+	<div class="wrap">
+		<div class="box three"></div>
+		<div class="box three"></div>
+		<div class="box three"></div>
+	</div>
+	<div class="wrap">
+		<div class="box four"></div>
+	</div>
+	<div class="wrap">
+		<div class="box five"></div>
+		<div class="box five"></div>
+		<div class="box five"></div>
+		<div class="box five"></div>
+		<div class="box five"></div>
+		<div class="box five"></div>
+		<div class="box five"></div>
+		<div class="box five"></div>
+	</div>
+	<div class="wrap">
+		<div class="box six"></div>
+		<div class="box six"></div>
+		<div class="box six"></div>
+	</div>
+
+	<script type="module">
+		import showOnScroll, {
+			fadeSlideUp,
+			fadeSlideDown,
+			wipeUp,
+			wipeDown,
+			makeTransition
+		} from './dist/index.js';
+
+		const customTransition = makeTransition({
+			start: {'background': 'green'},
+			end:  {
+				'background': 'red',
+				'transition': '1s background'
+			}
+		});
+
+		const modifiedTransiton = {...wipeUp, stagger: 0};
+
+		showOnScroll('.box.one', fadeSlideUp);
+		showOnScroll('.box.two', fadeSlideDown);
+		showOnScroll('.box.three', wipeUp);
+		showOnScroll('.box.four', wipeDown);
+		showOnScroll('.box.five', customTransition);
+		showOnScroll('.box.six', modifiedTransiton);
+	</script>
+</body>
+</html>

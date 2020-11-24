@@ -1,0 +1,26 @@
+{
+  "name": "@zerofool/show-on-scroll",
+  "version": "0.0.1",
+  "description": "Javascript library for animating elements into view when scrolled to",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npx http-server",
+    "dev": "tsc --watch",
+    "prepublish": "tsc"
+  },
+  "keywords": [
+    "scroll",
+    "scrolling",
+    "animating",
+    "animation",
+    "transition"
+  ],
+  "author": "@zerofool",
+  "license": "ISC",
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
