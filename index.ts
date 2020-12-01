@@ -37,10 +37,10 @@ const Keyfames = `
 
 let styleInjected = false;
 
-const emptyTransition: Transition = {
+export const emptyTransition: Transition = {
 	start: {},
 	end: {},
-	stagger: 130,
+	stagger: 0,
 	delay: 0,
 	observerOptions: {...DefaultObserverOptions}
 }
@@ -124,7 +124,8 @@ const styleElement = (element: HTMLElement, style: Style) => {
 
 const showOnScroll = (
 	target: ConfigTarget,
-	transition: Transition = {...fadeSlideUp}
+	transition: Transition = {...fadeSlideUp},
+	callback?: Function
 ) => {
 	let targets: HTMLElement[] = [];
 
@@ -164,6 +165,8 @@ const showOnScroll = (
 				'transition-delay': `${transitionDelay}ms`,
 				'animation-delay': `${transitionDelay}ms`
 			});
+
+			if (typeof callback === 'function') callback(target);
 		});
 	};
 

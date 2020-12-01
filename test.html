@@ -81,7 +81,7 @@
 		const modifiedTransiton = {...wipeUp, stagger: 0};
 
 		showOnScroll('.box.one', fadeSlideUp);
-		showOnScroll('.box.two', fadeSlideDown);
+		showOnScroll('.box.two', fadeSlideDown, el => console.log(el));
 		showOnScroll('.box.three', wipeUp);
 		showOnScroll('.box.four', wipeDown);
 		showOnScroll('.box.five', customTransition);
